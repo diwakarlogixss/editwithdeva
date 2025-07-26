@@ -1,0 +1,695 @@
+/* Global Styles */
+:root {
+    --bg-dark: #dee8f2;
+    --accent-blue: #00FFF7;
+    --accent-gold: #FFD700;
+    --text-light: #E0E0E0;
+    --text-white: #FFFFFF;
+    --card-bg: #1E1E1E;
+    --card-hover: #2A2A2A;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+     font-family: 'Poppins', sans-serif;
+}
+/* Navbar Brand Logo */
+.navbar-brand .logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Navbar Links */
+.navbar .nav-link {
+    font-size: 16px;         /* Adjust font size */
+    font-weight: 700;        /* Bold */
+    color: #ffffff !important;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    transition: color 0.3s ease;
+}
+
+/* Hover and Active Link */
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #ffd700 !important; /* Yellow or any highlight color */
+}
+
+/* Social Icons in Navbar */
+.navbar .social-icons a {
+    font-size: 20px;        /* Icon size */
+    color: #ffffff;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect on social icons */
+.navbar .social-icons a:hover {
+    color: #ffd700;         /* Change on hover */
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: var(--text-white);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+    border-radius: 2px;
+}
+
+.container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Navbar Styles */
+.navbar {
+   background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 10px 0;
+    box-shadow: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover .logo-text {
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    margin: 0 10px;
+    font-weight: 700; /* Use 600 for semi-bold, 700 for bold */
+    text-transform: uppercase; /* Optional: Makes text all caps */
+    letter-spacing: 0.5px; 
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.social-icons a {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-blue);
+    transform: translateY(-3px);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/hero-bg.jpg') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 255, 247, 0.1), rgba(255, 215, 0, 0.1));
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.btn-cta {
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 30px;
+    color: var(--bg-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeInUp 1s ease 0.4s forwards;
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn-cta:hover::before {
+    width: 100%;
+}
+
+/* About Section */
+.about-img-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid var(--card-bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 255, 247, 0.2);
+}
+
+.about-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff3300; /* Replace with your preferred color */
+}
+
+
+.about-text {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #f59300; /* Change this to any color you like */
+}
+
+
+.tool-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.tool-item:hover {
+    background-color: var(--card-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 247, 0.1);
+}
+
+.tool-item i {
+    margin-right: 10px;
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+}
+
+/* Services Section */
+.service-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid var(--accent-blue);
+    background-color: var(--card-hover);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(0, 255, 247, 0.1), rgba(255, 215, 0, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: var(--text-white);
+}
+
+.service-card p {
+    margin-bottom: 15px;
+}
+
+.service-features {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-features li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+}
+
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+/* Portfolio Section */
+.portfolio-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.portfolio-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .portfolio-img-container img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-link {
+    color: white;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.portfolio-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.5);
+}
+
+.portfolio-info {
+    padding: 20px;
+}
+
+.portfolio-info h3 {
+    margin-bottom: 10px;
+    color: var(--text-white);
+}
+
+/* Testimonials Section */
+.testimonial-item {
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-img-container {
+    width: 100px;
+    height: 100px;
+    border: 3px solid var(--accent-blue);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.testimonial-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.testimonial-text::before,
+.testimonial-text::after {
+    content: '"';
+    font-size: 2rem;
+    color: var(--accent-gold);
+    opacity: 0.5;
+}
+
+.testimonial-text::before {
+    margin-right: 5px;
+}
+
+.testimonial-text::after {
+    margin-left: 5px;
+}
+
+.testimonial-author {
+    color: var(--accent-blue);
+    margin-bottom: 5px;
+}
+
+.testimonial-role {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 255, 247, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(0, 255, 247, 0.4);
+}
+
+/* Contact Section */
+.contact-card {
+    background-color: var(--card-bg);
+    padding: 30px 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.contact-icon.whatsapp {
+    background-color: #25D366;
+}
+
+.contact-icon.email {
+    background: linear-gradient(135deg, #FF416C, #FF4B2B);
+}
+
+.contact-icon.instagram {
+    background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045);
+}
+
+.contact-link {
+    color: var(--accent-blue);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+   background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+    color: var(--text-light);
+}
+
+.footer-social a {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--accent-blue);
+    transform: translateY(-3px);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
+    color: var(--bg-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 247, 0.3);
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    border: 1px solid rgb(49, 248, 255);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgb(32, 166, 255);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(32, 166, 255);
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .about-img-container {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 30px;
+    }
+    
+    .service-card {
+        margin-bottom: 20px;
+    }
+    
+    .portfolio-img-container {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-img-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+/* Footer Text Style */
+footer p {
+    font-size: 20px;         /* Adjust font size */
+    color: #0a0202;          /* Change font color */
+}
+
+/* Footer Icon Style */
+.footer-social a {
+    font-size: 26px;         /* Icon size */
+    color: #fa0f0f;          /* Icon color */
+    margin: 0 10px;          /* Space between icons */
+    transition: color 0.3s ease;
+}
+
+/* Optional Hover Effect */
+.footer-social a:hover {
+    color: #ffd700;          /* Gold on hover, change as needed */
+}
